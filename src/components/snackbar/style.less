@@ -1,0 +1,60 @@
+@mn-text-color: white;
+@mn-background-color: black;
+@mn-allow-text-color: green;
+@mn-deny-text-color: red;
+@mn-font-size: 1.0em;
+
+.mn-snackbar{
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    background-color: @mn-background-color;
+    border: 2px solid @mn-background-color;
+    border-radius: 5px;
+
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 1.0em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+
+
+    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+
+    .label {
+        display: inline-block;
+    }
+
+    .mn-button {
+        cursor: pointer;
+        font-size: @mn-font-size;
+        border: none;
+        background: transparent;
+        margin: 0px 5px;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    .mn-button.allow {
+        color: @mn-allow-text-color;
+    }
+    .mn-button.deny {
+        color: @mn-deny-text-color;
+    }
+}
+
+.mn-snackbar.transition-down:last-child {
+    margin-top: -40px;
+}
+
+.mn-snackbar.transition-up:last-child {
+    margin-bottom: -40px;
+}
+
+.mn-snackbar.hide {
+    display:none;
+}
