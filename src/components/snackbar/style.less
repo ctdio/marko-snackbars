@@ -15,21 +15,19 @@
     font-family: "Arial", Helvetica, sans-serif;
     font-size: 1.0em;
 
-    display: flex;
+    display: inline-block;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     vertical-align: top;
 
-
     transition: all 0.5s ease-out;
-    -webkit-transition: all 0.5s ease-out;
 
     .label {
         display: inline-block;
     }
 
-    .mn-button {
+    .mn-snack-button {
         cursor: pointer;
         font-size: @mn-font-size;
         border: none;
@@ -39,10 +37,10 @@
         align-items: center;
         justify-content: center;
     }
-    .mn-button.allow {
+    .mn-snack-button.allow {
         color: @mn-allow-text-color;
     }
-    .mn-button.deny {
+    .mn-snack-button.deny {
         color: @mn-deny-text-color;
     }
 }
@@ -51,8 +49,18 @@
     margin-top: -40px;
 }
 
+.mn-snackbar.transition-down:not(:last-child).remove {
+    visibility: hidden;
+    margin-top: -45px;
+}
+
 .mn-snackbar.transition-up:last-child {
     margin-bottom: -40px;
+}
+
+.mn-snackbar.transition-up:not(:last-child).remove {
+    visibility: hidden;
+    margin-bottom: -45px;
 }
 
 .mn-snackbar.hide {

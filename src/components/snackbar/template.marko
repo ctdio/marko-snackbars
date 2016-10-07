@@ -3,7 +3,8 @@ div [
         'mn-snackbar',
         'transition-' + data.transitionDirection,
         data.initialPosition,
-        data.animation
+        data.animation,
+        data.remove ? 'remove' : ''
     ]
     w-bind
 ]
@@ -11,11 +12,11 @@ div [
         - ${data.message}
     button [
         if(data.allowText)
-        class='mn-button allow'
+        class='mn-snack-button allow'
         w-onClick='handleAllow'
     ] - ${data.allowText}
     button [
         if(data.denyText)
-        class='mn-button deny'
+        class='mn-snack-button deny'
         w-onClick='handleDeny'
     ] - ${data.denyText}

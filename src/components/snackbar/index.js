@@ -16,7 +16,11 @@ module.exports = require('marko-widgets').defineComponent({
 
         if (!self.state.persist && self.state.ttl) {
             self.destroyTimeout = setTimeout(function() {
-                self.destroy();
+                // briefly play removal animation before destroyingw
+                self.setState('remove', true);
+                setTimeout(function() {
+                    self.destroy();
+                }, 500);
             }, self.state.ttl);
         }
         self.setState('animation', 'slide-left');

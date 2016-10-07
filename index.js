@@ -1,5 +1,6 @@
 var Snackbar = require('./src/components/snackbar');
 var SnackContainer = require('./src/components/snack-container');
+
 var positions = [
     'tr',
     'tl',
@@ -11,7 +12,7 @@ var positions = [
 
 var containers = {};
 
-window.markoNotification = exports;
+window.markoSnackbars = exports;
 
 /**
  *  Renders the notification onto the webpage

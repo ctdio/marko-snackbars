@@ -9,8 +9,8 @@
   "author": "Charlie Duong",
   "license": "ISC",
   "dependencies": {
-    "marko": "^3.7.2",
-    "marko-widgets": "^6.1.3"
+    "marko": "^3.11.3",
+    "marko-widgets": "^6.3.5"
   },
   "devDependencies": {
     "app-module-path": "^1.1.0",
