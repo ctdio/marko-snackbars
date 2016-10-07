@@ -10,14 +10,18 @@ var positions = [
     'bc'
 ];
 
-var containers = {};
+// elements to append the snackbar to
+var targets = {};
 
 window.markoSnackbars = exports;
 
 /**
  *  Renders the notification onto the webpage
  **/
-exports.createNotification = function(options) {
+exports.createNotification = function(options, targetEl) {
+    // default target is the document's body
+    targetEl = targetEl || document.body;
+
     var position = options.position;
     if (!position) {
         // default to top left
@@ -27,16 +31,22 @@ exports.createNotification = function(options) {
     }
 
     var direction = position[0] === 't' ? 'down' : 'up';
+    if (!targets[targetEl]) {
+        targets[targetEl] = {};
+    }
     // lazily render the container element for notifications when the position is given
-    if (!containers[position]) {
-        var container = SnackContainer.render({
+    var containerWidget = targets[targetEl][position];
+    if (!containerWidget) {
+        var containerEl = SnackContainer.render({
             position: position,
             direction: direction
         });
-        container.appendTo(document.body);
-        containers[position] = container.getWidget();
+        containerEl.appendTo(targetEl);
+        containerWidget = targets[targetEl][position] = containerEl.getWidget();
     }
     options.transitionDirection = direction;
+
+    // render notification and append it to the container
     var notification = Snackbar.render(options);
-    containers[position].addNotification(notification);
+    containerWidget.addNotification(notification);
 };
