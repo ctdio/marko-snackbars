@@ -34,16 +34,16 @@ snackbars.createNotification({
     // text for the 'deny' button (optional, same as above)
     denyText: 'Decline',
 
-    // the color of the notification's background, defaults to black
+    // the color of the notification's background (defaults to black)
     bgColor: 'purple',
 
-    // the color of the notification's message
+    // the color of the notification's message (defaults to white)
     messageColor: 'white'
 
     // color of the allow button's text (defaults to green)'
     allowTextColor: '#112233'
 
-    // color of the deny button's text (defaults to )
+    // color of the deny button's text (defaults to red)
     denyTextColor: '#123455',
 
     // handler for when 'allow' button is pressed (optional)
