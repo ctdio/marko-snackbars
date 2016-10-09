@@ -1,7 +1,7 @@
 /**
  *  Snackbar component
  **/
-require('./style.less');
+require('./style.css');
 
 // default view length in ms
 var FIVE_SEC = 5000;
@@ -14,16 +14,16 @@ module.exports = require('marko-widgets').defineComponent({
         self.onAllow = self.state.actions.onAllow;
         self.onDeny = self.state.actions.onDeny;
 
-        if (!self.state.persist && self.state.ttl) {
+        if (!self.state.persist) {
             self.destroyTimeout = setTimeout(function() {
-                // briefly play removal animation before destroyingw
+                // briefly play removal animation before destroying
                 self.setState('remove', true);
                 setTimeout(function() {
                     self.destroy();
                 }, 500);
             }, self.state.ttl);
         }
-        self.setState('animation', 'slide-left');
+        self.setState('animate', true);
     },
 
     getInitialProps: function(input) {
@@ -48,6 +48,10 @@ module.exports = require('marko-widgets').defineComponent({
             denyText: input.denyText,
             ttl: input.ttl || FIVE_SEC,
             persist: input.persist,
+            bgColor: input.bgColor,
+            messageColor: input.messageColor,
+            allowTextColor: input.allowTextColor,
+            denyTextColor: input.denyTextColor,
             // wrap callbacks in another object so that it doesn't get
             // removed by marko
             actions: {

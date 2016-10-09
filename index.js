@@ -31,6 +31,7 @@ exports.createNotification = function(options, targetEl) {
     }
 
     var direction = position[0] === 't' ? 'down' : 'up';
+
     if (!targets[targetEl]) {
         targets[targetEl] = {};
     }

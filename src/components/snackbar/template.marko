@@ -3,20 +3,30 @@ div [
         'mn-snackbar',
         'transition-' + data.transitionDirection,
         data.initialPosition,
-        data.animation,
+        data.animate ? '' : 'conceal',
         data.remove ? 'remove' : ''
     ]
+    style={
+        color: data.messageColor,
+        'background-color': data.bgColor,
+        'border-color': data.bgColor
+    }
     w-bind
 ]
-    label class='mn-message'
-        - ${data.message}
+    label class='mn-message' - ${data.message}
     button [
         if(data.allowText)
         class='mn-snack-button allow'
+        style={
+            color: data.allowTextColor
+        }
         w-onClick='handleAllow'
     ] - ${data.allowText}
     button [
         if(data.denyText)
         class='mn-snack-button deny'
+        style={
+            color: data.denyTextColor
+        }
         w-onClick='handleDeny'
     ] - ${data.denyText}

@@ -22,7 +22,7 @@ function create(__helpers) {
 
     lasso_head({}, out);
 
-    out.w("</head><body><button id=\"simple-notification-btn\">Generate Simple Notification</button>");
+    out.w("</head><body><button id=\"simple-notification-btn\">Generate Simple Notification</button><button id=\"doge-notification-btn\">Generate Doge Notification</button>");
 
     lasso_body({}, out);
 

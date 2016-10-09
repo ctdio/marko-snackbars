@@ -1,13 +1,49 @@
 var count = 1;
-var generateBtn = document.getElementById('simple-notification-btn');
+var dogeCount = 0;
+var generateNumberedSnackBtn = document.getElementById('simple-notification-btn');
+var generateDogeSnackBtn = document.getElementById('doge-notification-btn');
 
-generateBtn.addEventListener('click', function() {
+var dogeNotifications = [
+    {
+        message: 'Cool!',
+        bgColor: 'red'
+    },
+    {
+        message: 'Wow!',
+        bgColor: '#3cdfe8'
+    },
+    {
+        message: 'Much notification!',
+        allowText: 'I agree',
+        bgColor: 'yellow',
+        messageColor: 'black',
+        allowTextColor: 'orange'
+    },
+    {
+        message: 'Awesome!',
+        bgColor: 'orange'
+    },
+    {
+        message: 'Very snackbar',
+        bgColor: 'brown'
+    },
+    {
+        message: 'Much color',
+        bgColor: 'purple'
+    }
+];
+
+generateNumberedSnackBtn.addEventListener('click', function() {
     window.markoSnackbars.createNotification({
         position: 'tr',
         message: 'Notification ' + count,
-        showButtons: true,
-        allowText: 'allow',
-        ttl: count % 2 === 0 ? 1000 : 6000
+        ttl: -1
     });
     count++;
+});
+
+generateDogeSnackBtn.addEventListener('click', function() {
+    var notification = dogeNotifications[dogeCount % dogeNotifications.length];
+    window.markoSnackbars.createNotification(notification);
+    dogeCount++;
 });
