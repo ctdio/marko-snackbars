@@ -2,6 +2,7 @@ var count = 1;
 var dogeCount = 0;
 var generateNumberedSnackBtn = document.getElementById('simple-notification-btn');
 var generateDogeSnackBtn = document.getElementById('doge-notification-btn');
+var dismissableSnackBtn = document.getElementById('dismissable-notification-btn');
 
 var dogeNotifications = [
     {
@@ -46,4 +47,12 @@ generateDogeSnackBtn.addEventListener('click', function() {
     var notification = dogeNotifications[dogeCount % dogeNotifications.length];
     window.markoSnackbars.createNotification(notification);
     dogeCount++;
+});
+
+dismissableSnackBtn.addEventListener('click', function() {
+    window.markoSnackbars.createNotification({
+        message: 'Dismiss this',
+        denyText: 'Dismiss',
+        ttl: -1
+    });
 });

@@ -6,23 +6,28 @@ require('./style.css');
 // default view length in ms
 var FIVE_SEC = 5000;
 
+function _handleRemove(component) {
+    // briefly play removal animation before destroying
+    component.setState('remove', true);
+    setTimeout(function() {
+        component.destroy();
+    }, 500);
+}
+
 module.exports = require('marko-widgets').defineComponent({
     template: require('./template.marko'),
 
     init: function() {
         var self = this;
+
+        // store allow and deny actions
         self.onAllow = self.state.actions.onAllow;
         self.onDeny = self.state.actions.onDeny;
 
         if (!self.state.persist) {
-            self.destroyTimeout = setTimeout(function() {
-                // briefly play removal animation before destroying
-                self.setState('remove', true);
-                setTimeout(function() {
-                    self.destroy();
-                }, 500);
-            }, self.state.ttl);
+            self.destroyTimeout = setTimeout(_handleRemove.bind(null, self), self.state.ttl);
         }
+
         self.setState('animate', true);
     },
 
@@ -65,6 +70,7 @@ module.exports = require('marko-widgets').defineComponent({
     onDestroy: function() {
         if (this.destroyTimeout) {
             clearTimeout(this.destroyTimeout);
+            _handleRemove(this);
         }
     },
 
@@ -72,13 +78,13 @@ module.exports = require('marko-widgets').defineComponent({
         if (this.onAllow) {
             this.onAllow();
         }
-        this.destroy();
+        _handleRemove(this);
     },
 
     handleDeny: function() {
         if (this.onDeny) {
             this.onDeny();
         }
-        this.destroy();
+        _handleRemove(this);
     }
 });
