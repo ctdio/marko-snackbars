@@ -86,5 +86,10 @@ module.exports = require('marko-widgets').defineComponent({
             this.onDeny();
         }
         _handleRemove(this);
+    },
+
+    // prevent event propogation when notification body is clicked
+    handleClick: function(event) {
+        event.preventDefault();
     }
 });
