@@ -10,6 +10,7 @@ function _handleRemove(component) {
     // briefly play removal animation before destroying
     component.setState('remove', true);
     setTimeout(function() {
+        component.destroyTimeout = null;
         component.destroy();
     }, 500);
 }
@@ -28,7 +29,11 @@ module.exports = require('marko-widgets').defineComponent({
             self.destroyTimeout = setTimeout(_handleRemove.bind(null, self), self.state.ttl);
         }
 
-        self.setState('animate', true);
+        // slightly delay the animation
+        self.animationDelayTimeout = setTimeout(function() {
+            self.animationDelayTimeout = null;
+            self.setState('animate', true);
+        }, 50);
     },
 
     getInitialProps: function(input) {
@@ -68,6 +73,9 @@ module.exports = require('marko-widgets').defineComponent({
 
     // handle any cleaning up of timeout (if it exists)
     onDestroy: function() {
+        if (this.animationDelayTimeout) {
+            clearTimeout(this.animationDelayTimeout);
+        }
         if (this.destroyTimeout) {
             clearTimeout(this.destroyTimeout);
             _handleRemove(this);
