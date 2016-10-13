@@ -6,6 +6,12 @@ require('./style.css');
 // default view length in ms
 var FIVE_SEC = 5000;
 
+// prevent event propogation and default behavior
+function _preventEventBubbling(event) {
+    event.stopPropagation();
+    event.preventDefault();
+}
+
 function _handleRemove(component) {
     // briefly play removal animation before destroying
     component.setState('remove', true);
@@ -82,22 +88,28 @@ module.exports = require('marko-widgets').defineComponent({
         }
     },
 
-    handleAllow: function() {
+    handleAllow: function(event) {
         if (this.onAllow) {
             this.onAllow();
         }
         _handleRemove(this);
+        _preventEventBubbling(event);
     },
 
-    handleDeny: function() {
+    handleDeny: function(event) {
         if (this.onDeny) {
             this.onDeny();
         }
         _handleRemove(this);
+        event.preventDefault();
     },
 
-    // prevent event propogation when notification body is clicked
     handleClick: function(event) {
-        event.preventDefault();
+        // dismiss notification onAllow or onDeny is not provided
+        if (!this.onDeny && !this.onAllow) {
+            _handleRemove(this);
+        }
+
+        _preventEventBubbling(event);
     }
 });

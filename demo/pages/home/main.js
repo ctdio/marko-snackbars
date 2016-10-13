@@ -4,6 +4,8 @@ var generateNumberedSnackBtn = document.getElementById('simple-notification-btn'
 var generateDogeSnackBtn = document.getElementById('doge-notification-btn');
 var dismissableSnackBtn = document.getElementById('dismissable-notification-btn');
 
+var markoSnackbars = window.markoSnackbars;
+
 var dogeNotifications = [
     {
         message: 'Cool!',
@@ -35,7 +37,7 @@ var dogeNotifications = [
 ];
 
 generateNumberedSnackBtn.addEventListener('click', function() {
-    window.markoSnackbars.createNotification({
+    markoSnackbars.createNotification({
         position: 'tr',
         message: 'Notification ' + count,
         ttl: -1
@@ -45,14 +47,20 @@ generateNumberedSnackBtn.addEventListener('click', function() {
 
 generateDogeSnackBtn.addEventListener('click', function() {
     var notification = dogeNotifications[dogeCount % dogeNotifications.length];
-    window.markoSnackbars.createNotification(notification);
+    markoSnackbars.createNotification(notification);
     dogeCount++;
 });
 
 dismissableSnackBtn.addEventListener('click', function() {
-    window.markoSnackbars.createNotification({
+    markoSnackbars.createNotification({
         message: 'Dismiss this',
         denyText: 'Dismiss',
+        onDeny: function() {
+            markoSnackbars.createNotification({
+                message: 'Notification was dismissed!',
+                bgColor: 'red'
+            });
+        },
         ttl: -1
     });
 });
