@@ -17,10 +17,24 @@ var dogeNotifications = [
     },
     {
         message: 'Much notification!',
-        allowText: 'I agree',
+        buttons: [
+            {
+                text: 'I agree',
+                color: 'orange'
+            },
+            {
+                text: 'Wow',
+                color: 'red',
+                onClick: function() {
+                    markoSnackbars.createNotification({
+                        message: 'Much Wow!',
+                        bgColor: 'pink'
+                    });
+                }
+            }
+        ],
         bgColor: 'yellow',
-        messageColor: 'black',
-        allowTextColor: 'orange'
+        messageColor: 'black'
     },
     {
         message: 'Awesome!',

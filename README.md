@@ -9,7 +9,7 @@ Snackbar notifications implemented with [Marko](https://github.com/marko-js/mark
 ### Installation
 
 ```
-npm install -g marko-snackbars
+npm install --save marko-snackbars
 ```
 
 ### Usage
@@ -28,33 +28,27 @@ snackbars.createNotification({
     // the message to display
     message: 'Enter message here',
 
-    // text for the 'allow' button (optional, won't show up if not provided)
-    allowText: 'Accept',
-
-    // text for the 'deny' button (optional, same as above)
-    denyText: 'Decline',
-
     // the color of the notification's background (defaults to black)
     bgColor: 'purple',
 
     // the color of the notification's message (defaults to white)
     messageColor: 'white'
 
-    // color of the allow button's text (defaults to green)'
-    allowTextColor: '#112233'
+    // the buttons to render on the snackbar (optional)
+    buttons: [
+        {
+            // text to render on button
+            text: 'Allow',
 
-    // color of the deny button's text (defaults to red)
-    denyTextColor: '#123455',
+            // color of button text
+            color: 'green',
 
-    // handler for when 'allow' button is pressed (optional)
-    onAllow: function() {
-        console.log('cool');
-    },
-
-    // handler for when the 'deny' button is pressed (optional)
-    onDeny: funciton() {
-        console.log('nooo');
-    },
+            // on click handler
+            onClick: function() {
+                console.log('cool');
+            }
+        }
+    ]
 
     // the amount of time in ms to show the notification
     // default is 5000ms, specifying a negative number will

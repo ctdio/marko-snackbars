@@ -27,10 +27,6 @@ module.exports = require('marko-widgets').defineComponent({
     init: function() {
         var self = this;
 
-        // store allow and deny actions
-        self.onAllow = self.state.actions.onAllow;
-        self.onDeny = self.state.actions.onDeny;
-
         if (!self.state.persist) {
             self.destroyTimeout = setTimeout(_handleRemove.bind(null, self), self.state.ttl);
         }
@@ -60,38 +56,26 @@ module.exports = require('marko-widgets').defineComponent({
         return {
             message: input.message,
             transitionDirection: input.transitionDirection,
-            allowText: input.allowText,
-            denyText: input.denyText,
             ttl: input.ttl || FIVE_SEC,
             persist: input.persist,
             bgColor: input.bgColor,
             messageColor: input.messageColor,
-            allowTextColor: input.allowTextColor,
-            denyTextColor: input.denyTextColor,
-            // wrap callbacks in another object so that it doesn't get
-            // removed by marko
-            actions: {
-                onAllow: input.onAllow,
-                onDeny: input.onDeny
-            }
+
+            // array of buttons to render
+            // example format for a button:
+            // { text: 'hi', color: 'red', onClick: function() {...}}
+            buttons: input.buttons
         };
     },
 
-    // handle any cleaning up of timeout (if it exists)
-    onDestroy: function() {
-        if (this.animationDelayTimeout) {
-            clearTimeout(this.animationDelayTimeout);
-        }
-        if (this.destroyTimeout) {
-            clearTimeout(this.destroyTimeout);
-            _handleRemove(this);
-        }
-    },
+    handleButtonClick(event, buttonEl) {
+        var pos = buttonEl.getAttribute('data-pos');
+        let onClick = this.state.buttons[pos].onClick;
 
-    handleAllow: function(event) {
-        if (this.onAllow) {
-            this.onAllow();
+        if (onClick) {
+            onClick();
         }
+
         _handleRemove(this);
         _preventEventBubbling(event);
     },
@@ -100,6 +84,7 @@ module.exports = require('marko-widgets').defineComponent({
         if (this.onDeny) {
             this.onDeny();
         }
+
         _handleRemove(this);
         event.preventDefault();
     },
