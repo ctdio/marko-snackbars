@@ -8,7 +8,7 @@ Snackbar notifications implemented with [Marko](https://github.com/marko-js/mark
 
 ### Installation
 
-```
+```sh
 npm install --save marko-snackbars
 ```
 
@@ -16,7 +16,7 @@ npm install --save marko-snackbars
 
 Creating notifications is simple. Just require the module and start creating the notifications using the `createNotification` method.
 
-```
+```js
 var snackbars = require('marko-snackbars');
 
 snackbars.createNotification({
@@ -61,7 +61,7 @@ snackbars.createNotification({
 
 By default, notifications will be appended to the document's `body`. An alternative target can be specified by passing the `createNotification` method the target element.
 
-```
+```js
 snackbars.createNotification(options, targetElement);
 ```
 
