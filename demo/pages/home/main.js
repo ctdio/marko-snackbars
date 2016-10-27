@@ -1,8 +1,9 @@
 var count = 1;
+var clickDismissCount = 1;
 var dogeCount = 0;
 var generateNumberedSnackBtn = document.getElementById('simple-notification-btn');
 var generateDogeSnackBtn = document.getElementById('doge-notification-btn');
-var dismissableSnackBtn = document.getElementById('dismissable-notification-btn');
+var clickDismissEnabledSnackBtn = document.getElementById('click-dismiss-enabled-notification-btn');
 
 var markoSnackbars = window.markoSnackbars;
 
@@ -59,22 +60,17 @@ generateNumberedSnackBtn.addEventListener('click', function() {
     count++;
 });
 
+clickDismissEnabledSnackBtn.addEventListener('click', function() {
+    markoSnackbars.createNotification({
+        position: 'tr',
+        message: 'Click Dismiss Notification ' + clickDismissCount,
+        clickDismissEnabled: false
+    });
+    clickDismissCount++;
+});
+
 generateDogeSnackBtn.addEventListener('click', function() {
     var notification = dogeNotifications[dogeCount % dogeNotifications.length];
     markoSnackbars.createNotification(notification);
     dogeCount++;
-});
-
-dismissableSnackBtn.addEventListener('click', function() {
-    markoSnackbars.createNotification({
-        message: 'Dismiss this',
-        denyText: 'Dismiss',
-        onDeny: function() {
-            markoSnackbars.createNotification({
-                message: 'Notification was dismissed!',
-                bgColor: 'red'
-            });
-        },
-        ttl: -1
-    });
 });
