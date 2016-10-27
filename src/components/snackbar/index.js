@@ -53,6 +53,10 @@ module.exports = require('marko-widgets').defineComponent({
      * @param {string} input.dismissText
      */
     getInitialState: function(input) {
+        var clickDismissEnabled = typeof input.clickDismissEnabled !== 'undefined' ?
+            input.clickDismissEnabled :
+            true;
+
         return {
             message: input.message,
             transitionDirection: input.transitionDirection,
@@ -60,6 +64,7 @@ module.exports = require('marko-widgets').defineComponent({
             persist: input.persist,
             bgColor: input.bgColor,
             messageColor: input.messageColor,
+            clickDismissEnabled: clickDismissEnabled,
 
             // array of buttons to render
             // example format for a button:
@@ -68,9 +73,9 @@ module.exports = require('marko-widgets').defineComponent({
         };
     },
 
-    handleButtonClick(event, buttonEl) {
+    handleButtonClick: function(event, buttonEl) {
         var pos = buttonEl.getAttribute('data-pos');
-        let onClick = this.state.buttons[pos].onClick;
+        var onClick = this.state.buttons[pos].onClick;
 
         if (onClick) {
             onClick();
@@ -80,18 +85,8 @@ module.exports = require('marko-widgets').defineComponent({
         _preventEventBubbling(event);
     },
 
-    handleDeny: function(event) {
-        if (this.onDeny) {
-            this.onDeny();
-        }
-
-        _handleRemove(this);
-        event.preventDefault();
-    },
-
     handleClick: function(event) {
-        // dismiss notification onAllow or onDeny is not provided
-        if (!this.onDeny && !this.onAllow) {
+        if (this.state.clickDismissEnabled) {
             _handleRemove(this);
         }
 

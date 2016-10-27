@@ -32,7 +32,10 @@ snackbars.createNotification({
     bgColor: 'purple',
 
     // the color of the notification's message (defaults to white)
-    messageColor: 'white'
+    messageColor: 'white',
+
+    // the notification will not be dismissed from clicking on it (defaults to true)
+    clickDismissEnabled: false,
 
     // the buttons to render on the snackbar (optional)
     buttons: [
