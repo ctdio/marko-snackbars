@@ -17,6 +17,7 @@
     "browser-refresh": "^1.6.0",
     "compression": "^1.6.2",
     "express": "^4.14.0",
+    "git-hooks": "^1.1.6",
     "jscs": "^3.0.7",
     "jshint": "^2.9.3",
     "lasso": "^2.5.5",
