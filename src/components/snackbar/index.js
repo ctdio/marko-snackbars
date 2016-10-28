@@ -14,11 +14,27 @@ function _preventEventBubbling(event) {
 
 function _handleRemove(component) {
     // briefly play removal animation before destroying
-    component.setState('remove', true);
-    setTimeout(function() {
-        component.destroyTimeout = null;
+    component.destroyTimeout = null;
+    component.setState('slideOut', true);
+
+    function destroy() {
         component.destroy();
-    }, 500);
+    }
+
+    function transitionOut() {
+        component.setState('remove', true);
+        // if the next sibling is defined, delay element removal
+        // so that vertical sliding transition can be handled
+        // else, destroy the element immediately so that
+        // all other elements will slide upwards
+        if (component.getEl().nextSibling) {
+            setTimeout(destroy, 500);
+        } else {
+            destroy();
+        }
+    }
+
+    setTimeout(transitionOut, 250);
 }
 
 module.exports = require('marko-widgets').defineComponent({

@@ -3,7 +3,7 @@
 Snackbar notifications implemented with [Marko](https://github.com/marko-js/marko) and [Marko Widgets](https://github.com/marko-js/marko-widgets).
 
 <p align='center'>
-    <img src='https://media.giphy.com/media/3o6Ztk4LGGjbbhTvyg/giphy.gif'/>
+    <img src='https://media.giphy.com/media/3oriNVIZjxeyBhCXhS/giphy.gif'/>
 </p>
 
 ### Installation

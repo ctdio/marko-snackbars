@@ -17,7 +17,6 @@
     vertical-align: top;
 
     transition: all 0.5s ease-out;
-
 }
 
 .mn-snackbar > .label {
@@ -38,12 +37,18 @@
 /**
  *  push down/up notifications when added
  */
+.mn-snackbar.remove {
+    opacity: 0;
+}
 .mn-snackbar.transition-down:last-child {
     margin-top: -40px;
 }
 
+.mn-snackbar.transition-down:last-child.remove {
+    margin-top: -40px;
+}
+
 .mn-snackbar.transition-down:not(:last-child).remove {
-    visibility: hidden;
     margin-top: -45px;
 }
 
@@ -81,7 +86,39 @@
     right: -100%;
 }
 
+.mn-snack-tc > .mn-snackbar {
+    opacity: 1;
+    top: 0;
+}
 
-.mn-snackbar.remove {
+.mn-snack-tc > .mn-snackbar.conceal {
     opacity: 0;
+    position: absolute;
+    top: -100%;
+}
+
+.mn-snack-bc > .mn-snackbar {
+    opacity: 1;
+    bottom: 0;
+}
+
+.mn-snack-bc > .mn-snackbar.conceal {
+    opacity: 0;
+    position: absolute;
+    bottom: -100%;
+}
+
+/**
+ * Slide notification out when removed
+ */
+.mn-snackbar.slide-out {
+    opacity: 0;
+}
+
+.mn-snack-tl > .mn-snackbar.slide-out, .mn-snack-bl > .mn-snackbar.slide-out {
+    left: -100%;
+}
+
+.mn-snack-tr > .mn-snackbar.slide-out, .mn-snack-br > .mn-snackbar.slide-out {
+    right: -100%;
 }

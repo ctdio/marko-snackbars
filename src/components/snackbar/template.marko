@@ -4,7 +4,8 @@ div [
         'transition-' + data.transitionDirection,
         data.initialPosition,
         data.animate ? '' : 'conceal',
-        data.remove ? 'remove' : ''
+        data.remove ? 'remove' : '',
+        data.slideOut ? 'slide-out': ''
     ]
     style={
         color: data.messageColor,
