@@ -68,6 +68,23 @@ By default, notifications will be appended to the document's `body`. An alternat
 snackbars.createNotification(options, targetElement);
 ```
 
+### Demo
+
+A demo site running with `marko-snackbars` can be started by running:
+
+```bash
+./run-demo.sh
+```
+
+By default, the demo runs on port `8080` and is accessible from
+`http://localhost:8080`. To change the default port set the `PORT` environment
+variable.
+
+```bash
+export PORT=8082
+./run-demo.sh
+```
+
 ### Todo
 - Add tests using [marko-devtools](https://github.com/mlrawlings/marko-devtools)
 - Add support for custom animations, like those from [animate.css](https://github.com/daneden/animate.css)
