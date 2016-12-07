@@ -50,4 +50,9 @@ exports.createNotification = function(options, targetEl) {
     // render notification and append it to the container
     var notification = Snackbar.render(options);
     containerWidget.addNotification(notification);
+
+    return {
+        container: containerWidget,
+        notification: notification
+    };
 };

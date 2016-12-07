@@ -19,6 +19,10 @@ function _handleRemove(component) {
 
     function destroy() {
         component.destroy();
+
+        if (component.state.onDismiss) {
+            component.state.onDismiss.method();
+        }
     }
 
     function transitionOut() {
@@ -73,6 +77,13 @@ module.exports = require('marko-widgets').defineComponent({
             input.clickDismissEnabled :
             true;
 
+        var onDismiss;
+        if (input.onDismiss) {
+            onDismiss = {
+                method: input.onDismiss
+            };
+        }
+
         return {
             message: input.message,
             transitionDirection: input.transitionDirection,
@@ -81,6 +92,7 @@ module.exports = require('marko-widgets').defineComponent({
             bgColor: input.bgColor,
             messageColor: input.messageColor,
             clickDismissEnabled: clickDismissEnabled,
+            onDismiss: onDismiss,
 
             // array of buttons to render
             // example format for a button:
