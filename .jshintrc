@@ -15,7 +15,8 @@
         "setInterval": true,
         "clearInterval": true,
         "Promise": true,
-        "KeyboardEvent": true
+        "KeyboardEvent": true,
+        "console": true
     },
     "strict": false,
     "globalstrict": true,

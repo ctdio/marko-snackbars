@@ -51,7 +51,11 @@ snackbars.createNotification({
                 console.log('cool');
             }
         }
-    ]
+    ],
+
+    onDismiss: function() {
+        // successfully dismissed and destroyed the component
+    },
 
     // the amount of time in ms to show the notification
     // default is 5000ms, specifying a negative number will

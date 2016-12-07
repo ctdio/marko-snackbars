@@ -64,7 +64,10 @@ clickDismissEnabledSnackBtn.addEventListener('click', function() {
     markoSnackbars.createNotification({
         position: 'tr',
         message: 'Click Dismiss Notification ' + clickDismissCount,
-        clickDismissEnabled: false
+        clickDismissEnabled: false,
+        onDismiss: function() {
+            console.log('Successfully dismissed');
+        }
     });
     clickDismissCount++;
 });
