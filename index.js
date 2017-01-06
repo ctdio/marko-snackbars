@@ -38,7 +38,7 @@ exports.createNotification = function(options, targetEl) {
     // lazily render the container element for notifications when the position is given
     var containerWidget = targets[targetEl][position];
     if (!containerWidget) {
-        var containerEl = SnackContainer.render({
+        var containerEl = SnackContainer.renderSync({
             position: position,
             direction: direction
         });
@@ -48,7 +48,7 @@ exports.createNotification = function(options, targetEl) {
     options.transitionDirection = direction;
 
     // render notification and append it to the container
-    var notification = Snackbar.render(options);
+    var notification = Snackbar.renderSync(options);
     containerWidget.addNotification(notification);
 
     return {
