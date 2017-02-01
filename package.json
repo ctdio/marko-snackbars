@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "marko": "^3.14.0",
-    "marko-widgets": "^6.6.0"
+    "marko-widgets": "^6.6.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "app-module-path": "^1.1.0",
