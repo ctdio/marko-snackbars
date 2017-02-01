@@ -25,10 +25,10 @@ exports.createNotification = function(options, targetEl) {
 
     // retrieve unique id of the element that notification containers are being attached to
     var targetId;
-    if (targetEl._snackbarContainerId) {
-        targetId = targetEl._snackbarContainerId;
+    if (targetEl.__snackbarContainerId) {
+        targetId = targetEl.__snackbarContainerId;
     } else {
-        targetId = targetEl._snackbarContainerId = _createUUID();
+        targetId = targetEl.__snackbarContainerId = _createUUID();
     }
 
     var position = options.position;
