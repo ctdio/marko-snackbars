@@ -4,11 +4,16 @@
   "description": "A notification system built with Marko-Widgets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "author": "Charlie Duong",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "marko": "^3.14.0",
     "marko-widgets": "^6.6.0",
     "uuid": "^3.0.1"
@@ -19,7 +24,6 @@
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "git-hooks": "^1.1.6",
-    "jscs": "^3.0.7",
     "jshint": "^2.9.3",
     "lasso": "^2.5.5",
     "lasso-less": "^2.3.1",
