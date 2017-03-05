@@ -15,7 +15,7 @@ function _preventEventBubbling (event) {
 function _handleRemove (component) {
   // briefly play removal animation before destroying
   component.destroyTimeout = null
-  component.setState('slideOut', true)
+  component.setStateDirty('slideOut', true)
 
   function destroy () {
     component.destroy()
@@ -31,7 +31,8 @@ function _handleRemove (component) {
     // so that vertical sliding transition can be handled
     // else, destroy the element immediately so that
     // all other elements will slide upwards
-    if (component.getEl().nextSibling) {
+    var componentEl = component.getEl()
+    if (componentEl && componentEl.nextSibling) {
       setTimeout(destroy, 500)
     } else {
       destroy()
@@ -41,10 +42,8 @@ function _handleRemove (component) {
   setTimeout(transitionOut, 250)
 }
 
-module.exports = require('marko-widgets').defineComponent({
-  template: require('./template.marko'),
-
-  init: function () {
+module.exports = {
+  onMount: function (input) {
     var self = this
 
     if (!self.state.persist) {
@@ -58,37 +57,35 @@ module.exports = require('marko-widgets').defineComponent({
     }, 50)
   },
 
-  getInitialProps: function (input) {
-        // negative ttl means persist indefinitely
-    if (input.ttl < 0) {
-      input.persist = true
-    }
-    return input
-  },
-
   /**
    * @param {string} input.headerText
    * @param {string} input.messageText
    * @param {string} input.image
    * @param {string} input.dismissText
    */
-  getInitialState: function (input) {
+  onInput: function (input) {
     var clickDismissEnabled = typeof input.clickDismissEnabled !== 'undefined'
       ? input.clickDismissEnabled
       : true
 
     var onDismiss
+    var persist = false
+
+    if (input.ttl < 0) {
+      persist = true
+    }
+
     if (input.onDismiss) {
       onDismiss = {
         method: input.onDismiss
       }
     }
 
-    return {
+    this.state = {
       message: input.message,
       transitionDirection: input.transitionDirection,
       ttl: input.ttl || FIVE_SEC,
-      persist: input.persist,
+      persist: persist,
       bgColor: input.bgColor,
       messageColor: input.messageColor,
       class: input.class,
@@ -103,7 +100,7 @@ module.exports = require('marko-widgets').defineComponent({
   },
 
   getId: function () {
-    // return the marko generated id of the widget
+    // return the marko generated id of the component
     return this.id
   },
 
@@ -126,4 +123,4 @@ module.exports = require('marko-widgets').defineComponent({
 
     _preventEventBubbling(event)
   }
-})
+}

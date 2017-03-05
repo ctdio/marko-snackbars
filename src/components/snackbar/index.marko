@@ -1,0 +1,26 @@
+div [
+  class=[
+    'mn-snackbar',
+    'transition-' + state.transitionDirection,
+    state.animate ? '' : 'conceal',
+    state.remove ? 'remove' : '',
+    state.slideOut ? 'slide-out': '',
+    data.class
+  ]
+  style={
+    color: state.messageColor,
+    'background-color': state.bgColor,
+    'border-color': state.bgColor
+  }
+  onClick('handleClick')
+]
+  label class='mn-message'
+    -- ${state.message}
+  if(state.buttons)
+    for(var i = 0; i < state.buttons.length; i++)
+      button [
+        data-pos=i
+        class='mn-snack-button ${data.buttons[i].class}'
+        style={color: state.buttons[i].color}
+        onClick('handleButtonClick')
+      ] -- ${state.buttons[i].text}

@@ -28,6 +28,7 @@ describe('snackbar component', function () {
 
     var snackbarText = $('.mn-snackbar').text()
     var snackbarStyle = $('.mn-snackbar').attr('style')
+
     expect(snackbarText).to.equal(testMessage)
     expect(snackbarStyle).to.contain('color:' + snackbarColor)
   })
@@ -83,8 +84,8 @@ describe('snackbar component', function () {
       for (var i = 0; i < buttons.length; i++) {
         var buttonInput = testButtons[i]
         var actualButton = buttons.eq(i)
-        expect(actualButton.attr('style')).to.equal('color:' + buttonInput.color)
         expect(actualButton.attr('class')).to.contain(buttonInput.class)
+        expect(actualButton.attr('style')).to.contain('color:' + buttonInput.color)
         expect(actualButton.text()).to.equal(buttonInput.text)
       }
     })
@@ -119,16 +120,19 @@ describe('snackbar component', function () {
       var output = context.render(renderOptions)
       var widget = output.widget
 
+      var snackbarEl = widget.getEl()
+
       var dismissPromise = new Promise(function (resolve) {
-        widget.on('destroy', function () {
-          resolve()
+        widget.once('update', function () {
+          expect(snackbarEl.className).to.contain('slide-out')
+
+          widget.once('destroy', function () {
+            resolve()
+          })
         })
       })
 
-      var snackbarEl = widget.getEl()
       snackbarEl.click()
-
-      expect(snackbarEl.className).to.contain('slide-out')
 
       return dismissPromise
     }

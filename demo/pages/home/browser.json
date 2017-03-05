@@ -1,6 +1,5 @@
 {
     "dependencies" : [
-        "require: marko-widgets",
         "./styles.less",
         "require-run: ../../../index.js",
         "require-run: ./main"
