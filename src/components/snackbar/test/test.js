@@ -110,21 +110,13 @@ describe('snackbar component', function () {
         })
       })
 
-      var snackbarEl = document.querySelector('.mn-snackbar')
+      var snackbarEl = widget.getEl()
       snackbarEl.click()
 
       expect(snackbarEl.className).to.contain('slide-out')
 
       return dismissPromise
     }
-
-    test('should remove notification', function (context) {
-      var renderOptions = {
-        clickDismissEnabled: true
-      }
-
-      return applyClickTest(context, renderOptions)
-    })
 
     test('should dismiss notification if "clickDismissEnabled" is set to true', function (context) {
       var renderOptions = {
@@ -164,7 +156,7 @@ describe('snackbar component', function () {
   })
 
   context('auto dismissing', function () {
-    test('should happen after about five seconds have passed', function (context) {
+    test('by default should happen after about five seconds have passed', function (context) {
       this.timeout(6000)
 
       var output = context.render()

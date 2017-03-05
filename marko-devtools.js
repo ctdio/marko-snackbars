@@ -1,6 +1,9 @@
 module.exports = function (markoDevTools) {
-  // allow promises to be used during test
   markoDevTools.config.browserTestDependencies = [
-    'bluebird/js/browser/bluebird.core.js'
+    // allow promises to be used during test
+    'bluebird/js/browser/bluebird.core.js',
+
+    // add unit test for index file to be run
+    'require-run: ./test/create-test.js'
   ]
 }

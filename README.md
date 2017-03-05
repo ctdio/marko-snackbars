@@ -89,5 +89,4 @@ PORT=8082 npm start
 ```
 
 ### Todo
-- Add tests using [marko-devtools](https://github.com/mlrawlings/marko-devtools)
 - Add support for custom animations, like those from [animate.css](https://github.com/daneden/animate.css)

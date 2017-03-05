@@ -7,6 +7,13 @@ module.exports = require('marko-widgets').defineComponent({
     this.notifications = []
   },
 
+  onDestroy: function () {
+    // destroy any leftover notifications
+    this.notifications.forEach(function (notification) {
+      notification.destroy()
+    })
+  },
+
   getInitialState: function (input) {
     return {
       direction: input.direction,
@@ -14,8 +21,11 @@ module.exports = require('marko-widgets').defineComponent({
     }
   },
 
-  addNotification: function (notificationWidget) {
-    notificationWidget.appendTo(this.getEl())
-    this.notifications.push(notificationWidget.getWidget())
+  addNotification: function (notification) {
+    var notificationWidget = notification.appendTo(this.getEl()).getWidget()
+
+    this.notifications.push(notificationWidget)
+
+    return notificationWidget
   }
 })
