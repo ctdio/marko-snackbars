@@ -4,12 +4,14 @@ module.exports = require('marko-widgets').defineComponent({
   template: require('./template.marko'),
 
   init: function () {
-    this.notifications = []
+    this.notificationsMap = {}
   },
 
   onDestroy: function () {
     // destroy any leftover notifications
-    this.notifications.forEach(function (notification) {
+    var notificationsMap = this.notificationsMap
+    Object.keys(notificationsMap).forEach(function (key) {
+      var notification = notificationsMap[key]
       notification.destroy()
     })
   },
@@ -22,9 +24,16 @@ module.exports = require('marko-widgets').defineComponent({
   },
 
   addNotification: function (notification) {
-    var notificationWidget = notification.appendTo(this.getEl()).getWidget()
+    var self = this
+    var notificationsMap = self.notificationsMap
+    var notificationWidget = notification.appendTo(self.getEl()).getWidget()
+    var notificationId = notificationWidget.getId()
 
-    this.notifications.push(notificationWidget)
+    notificationWidget.on('destroy', function () {
+      delete notificationsMap[notificationId]
+    })
+
+    notificationsMap[notificationId] = notificationWidget
 
     return notificationWidget
   }

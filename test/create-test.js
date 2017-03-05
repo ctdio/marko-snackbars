@@ -53,7 +53,7 @@ describe('marko-snackbars', function () {
       var containerB = resultB.container
 
       expect(containerA).to.equal(containerB)
-      expect(containerA.notifications.length).to.equal(2)
+      expect(Object.keys(containerA.notificationsMap).length).to.equal(2)
       expect(document.querySelectorAll('.mn-snackbar').length).to.equal(2)
 
       containerA.destroy()
@@ -76,8 +76,8 @@ describe('marko-snackbars', function () {
       var resultB = markoSnackbars.createNotification(notificationOptionsB, targetEl)
       var containerB = resultB.container
 
-      expect(containerA.notifications.length).to.equal(1)
-      expect(containerB.notifications.length).to.equal(1)
+      expect(Object.keys(containerA.notificationsMap).length).to.equal(1)
+      expect(Object.keys(containerB.notificationsMap).length).to.equal(1)
       expect(document.querySelectorAll('.mn-snackbar').length).to.equal(2)
 
       containerA.destroy()

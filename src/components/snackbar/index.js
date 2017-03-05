@@ -101,6 +101,11 @@ module.exports = require('marko-widgets').defineComponent({
     }
   },
 
+  getId: function () {
+    // return the marko generated id of the widget
+    return this.id
+  },
+
   handleButtonClick: function (event, buttonEl) {
     var pos = buttonEl.getAttribute('data-pos')
     var onClick = this.state.buttons[pos].onClick

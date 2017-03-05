@@ -96,6 +96,8 @@ describe('snackbar component', function () {
       buttonEl.click()
 
       expect(buttonClicked).to.equal(true)
+
+      widget.destroy()
     })
   })
 
