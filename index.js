@@ -46,18 +46,18 @@ exports.createNotification = function (options, targetEl) {
   }
 
   // lazily render the container element for notifications when the position is given
-  var containerWidget = targets[targetId][position]
-  if (!containerWidget) {
+  var containerComponent = targets[targetId][position]
+  if (!containerComponent) {
     var containerEl = SnackContainer.renderSync({
       position: position,
       direction: direction
     })
 
     containerEl.appendTo(targetEl)
-    containerWidget = targets[targetId][position] = containerEl.getWidget()
+    containerComponent = targets[targetId][position] = containerEl.getComponent()
 
-    // clean up dead widgets
-    containerWidget.on('destroy', function () {
+    // clean up dead components
+    containerComponent.on('destroy', function () {
       delete targets[targetId][position]
       if (Object.keys(targets[targetId]).length === 0) {
         // targetElement does not have any other container elements
@@ -69,10 +69,10 @@ exports.createNotification = function (options, targetEl) {
 
   // render notification and append it to the container
   var notification = Snackbar.renderSync(options)
-  var notificationWidget = containerWidget.addNotification(notification)
+  var notificationComponent = containerComponent.addNotification(notification)
 
   return {
-    container: containerWidget,
-    notification: notificationWidget
+    container: containerComponent,
+    notification: notificationComponent
   }
 }

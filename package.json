@@ -16,8 +16,7 @@
     "eslint-config-standard": "^7.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
-    "marko": "^3.14.0",
-    "marko-widgets": "^6.6.0",
+    "marko": "^4.0.0",
     "uuid": "^3.0.1"
   },
   "devDependencies": {

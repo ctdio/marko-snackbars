@@ -1,8 +1,8 @@
 var chai = require('chai')
 var expect = chai.expect
 
-var Snackbar = require('../../snackbar')
-var SnackContainer = require('../index')
+var Snackbar = require('../../snackbar/index.marko')
+var SnackContainer = require('../index.marko')
 
 describe('snack-container component', function () {
   test('should apply the direction and position it is given as classes', function (context) {
@@ -29,7 +29,7 @@ describe('snack-container component', function () {
       container = SnackContainer.renderSync({
         direction: 'down',
         position: 'tr'
-      }).appendTo(document.body).getWidget()
+      }).appendTo(document.body).getComponent()
     })
 
     afterEach(function () {
