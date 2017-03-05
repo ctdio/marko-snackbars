@@ -1,26 +1,27 @@
 div [
-    class=[
-        'mn-snackbar',
-        'transition-' + data.transitionDirection,
-        data.initialPosition,
-        data.animate ? '' : 'conceal',
-        data.remove ? 'remove' : '',
-        data.slideOut ? 'slide-out': ''
-    ]
-    style={
-        color: data.messageColor,
-        'background-color': data.bgColor,
-        'border-color': data.bgColor
-    }
-    w-onClick='handleClick'
-    w-bind
+  class=[
+    'mn-snackbar',
+    'transition-' + data.transitionDirection,
+    data.initialPosition,
+    data.animate ? '' : 'conceal',
+    data.remove ? 'remove' : '',
+    data.slideOut ? 'slide-out': ''
+  ]
+  style={
+    color: data.messageColor,
+    'background-color': data.bgColor,
+    'border-color': data.bgColor
+  }
+  w-onClick='handleClick'
+  w-bind
 ]
-    label class='mn-message' -- ${data.message}
-    if(data.buttons)
-        for(var i = 0; i < data.buttons.length; i++)
-            button [
-                data-pos=i
-                class='mn-snack-button'
-                style={color: data.buttons[i].color}
-                w-onClick='handleButtonClick'
-            ] -- ${data.buttons[i].text}
+  label class='mn-message'
+    -- ${data.message}
+  if(data.buttons)
+    for(var i = 0; i < data.buttons.length; i++)
+      button [
+        data-pos=i
+        class='mn-snack-button'
+        style={color: data.buttons[i].color}
+        w-onClick='handleButtonClick'
+      ] -- ${data.buttons[i].text}

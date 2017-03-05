@@ -66,7 +66,8 @@ snackbars.createNotification({
 
 ```
 
-By default, notifications will be appended to the document's `body`. An alternative target can be specified by passing the `createNotification` method the target element.
+By default, notifications will be appended to the document's `body`. An alternative target
+can be specified by passing the `createNotification` method the target element.
 
 ```js
 snackbars.createNotification(options, targetElement);
@@ -77,16 +78,14 @@ snackbars.createNotification(options, targetElement);
 A demo site running with `marko-snackbars` can be started by running:
 
 ```bash
-./run-demo.sh
+npm start
 ```
 
-By default, the demo runs on port `8080` and is accessible from
-`http://localhost:8080`. To change the default port set the `PORT` environment
-variable.
+By default, the demo runs on port `8080` and is accessible from `http://localhost:8080`.
+To change the default port set the `PORT` environment variable.
 
 ```bash
-export PORT=8082
-./run-demo.sh
+PORT=8082 npm start
 ```
 
 ### Todo

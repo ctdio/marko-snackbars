@@ -13,7 +13,7 @@ function _preventEventBubbling (event) {
 }
 
 function _handleRemove (component) {
-    // briefly play removal animation before destroying
+  // briefly play removal animation before destroying
   component.destroyTimeout = null
   component.setState('slideOut', true)
 
@@ -27,10 +27,10 @@ function _handleRemove (component) {
 
   function transitionOut () {
     component.setState('remove', true)
-        // if the next sibling is defined, delay element removal
-        // so that vertical sliding transition can be handled
-        // else, destroy the element immediately so that
-        // all other elements will slide upwards
+    // if the next sibling is defined, delay element removal
+    // so that vertical sliding transition can be handled
+    // else, destroy the element immediately so that
+    // all other elements will slide upwards
     if (component.getEl().nextSibling) {
       setTimeout(destroy, 500)
     } else {
@@ -51,7 +51,7 @@ module.exports = require('marko-widgets').defineComponent({
       self.destroyTimeout = setTimeout(_handleRemove.bind(null, self), self.state.ttl)
     }
 
-        // slightly delay the animation
+    // slightly delay the animation
     self.animationDelayTimeout = setTimeout(function () {
       self.animationDelayTimeout = null
       self.setState('animate', true)
@@ -66,16 +66,16 @@ module.exports = require('marko-widgets').defineComponent({
     return input
   },
 
-    /**
-     * @param {string} input.headerText
-     * @param {string} input.messageText
-     * @param {string} input.image
-     * @param {string} input.dismissText
-     */
+  /**
+   * @param {string} input.headerText
+   * @param {string} input.messageText
+   * @param {string} input.image
+   * @param {string} input.dismissText
+   */
   getInitialState: function (input) {
     var clickDismissEnabled = typeof input.clickDismissEnabled !== 'undefined'
-            ? input.clickDismissEnabled
-            : true
+      ? input.clickDismissEnabled
+      : true
 
     var onDismiss
     if (input.onDismiss) {
@@ -94,9 +94,9 @@ module.exports = require('marko-widgets').defineComponent({
       clickDismissEnabled: clickDismissEnabled,
       onDismiss: onDismiss,
 
-            // array of buttons to render
-            // example format for a button:
-            // { text: 'hi', color: 'red', onClick: function() {...}}
+      // array of buttons to render
+      // example format for a button:
+      // { text: 'hi', color: 'red', onClick: function() {...}}
       buttons: input.buttons
     }
   },

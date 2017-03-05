@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "browser-refresh ./demo/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "marko test ./src/components",
     "lint": "eslint ."
   },
   "author": "Charlie Duong",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "app-module-path": "^1.1.0",
+    "bluebird": "^3.5.0",
     "browser-refresh": "^1.6.0",
     "compression": "^1.6.2",
     "express": "^4.14.0",
@@ -29,6 +30,7 @@
     "lasso": "^2.5.5",
     "lasso-less": "^2.3.1",
     "lasso-marko": "^2.0.7",
+    "marko-devtools": "0.0.11",
     "serve-static": "^1.11.1"
   },
   "repository": {
