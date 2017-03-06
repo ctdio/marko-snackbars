@@ -15,7 +15,7 @@ function _preventEventBubbling (event) {
 function _handleRemove (component) {
   // briefly play removal animation before destroying
   component.destroyTimeout = null
-  component.setStateDirty('slideOut', true)
+  component.setState('slideOut', true)
 
   function destroy () {
     component.destroy()
