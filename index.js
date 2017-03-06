@@ -19,7 +19,7 @@ window.markoSnackbars = exports
 /**
  *  Renders the notification onto the webpage
  **/
-exports.createNotification = function (options, targetEl) {
+exports.create = function (options, targetEl) {
   // default target is the document's body
   targetEl = targetEl || document.body
 

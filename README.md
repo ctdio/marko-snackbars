@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/charlieduong94/marko-snackbars/badge.svg?branch=master)](https://coveralls.io/github/charlieduong94/marko-snackbars?branch=master)
 
 
-Snackbar notifications implemented with [Marko](https://github.com/marko-js/marko) and [Marko Widgets](https://github.com/marko-js/marko-widgets).
+Snackbar notifications implemented with [marko.js](https://github.com/marko-js/marko).
 
 <p align='center'>
     <img src='https://media.giphy.com/media/3oriNVIZjxeyBhCXhS/giphy.gif'/>
@@ -23,7 +23,7 @@ Creating notifications is simple. Just require the module and start creating the
 ```js
 var snackbars = require('marko-snackbars');
 
-snackbars.createNotification({
+snackbars.create({
     // specify the position
     // defaults to 'tr' (top right)
     // other possible values: 'tl', 'tc', 'bl', 'bc', and 'br'
@@ -82,7 +82,7 @@ By default, notifications will be appended to the document's `body`. An alternat
 can be specified by passing the `createNotification` method the target element.
 
 ```js
-snackbars.createNotification(options, targetElement);
+snackbars.create(options, targetElement);
 ```
 
 ### Demo
@@ -100,5 +100,3 @@ To change the default port set the `PORT` environment variable.
 PORT=8082 npm start
 ```
 
-### Todo
-- Add support for custom animations, like those from [animate.css](https://github.com/daneden/animate.css)
