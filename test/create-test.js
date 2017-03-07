@@ -24,7 +24,7 @@ describe('marko-snackbars', function () {
         message: testMessage
       }
 
-      var result = markoSnackbars.createNotification(options, targetEl)
+      var result = markoSnackbars.create(options, targetEl)
 
       var notificationEl = document.querySelector('.mn-snackbar')
       expect(notificationEl).to.exist // eslint-disable-line
@@ -46,10 +46,10 @@ describe('marko-snackbars', function () {
         position: 'tr'
       }
 
-      var resultA = markoSnackbars.createNotification(notificationOptionsA, targetEl)
+      var resultA = markoSnackbars.create(notificationOptionsA, targetEl)
       var containerA = resultA.container
 
-      var resultB = markoSnackbars.createNotification(notificationOptionsB, targetEl)
+      var resultB = markoSnackbars.create(notificationOptionsB, targetEl)
       var containerB = resultB.container
 
       expect(containerA).to.equal(containerB)
@@ -70,10 +70,10 @@ describe('marko-snackbars', function () {
         position: 'tl'
       }
 
-      var resultA = markoSnackbars.createNotification(notificationOptionsA, targetEl)
+      var resultA = markoSnackbars.create(notificationOptionsA, targetEl)
       var containerA = resultA.container
 
-      var resultB = markoSnackbars.createNotification(notificationOptionsB, targetEl)
+      var resultB = markoSnackbars.create(notificationOptionsB, targetEl)
       var containerB = resultB.container
 
       expect(Object.keys(containerA.notificationsMap).length).to.equal(1)
