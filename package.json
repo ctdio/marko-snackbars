@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "browser-refresh ./demo/server.js",
-    "test": "marko test ./src/components",
+    "test": "nyc marko test ./src/components",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint ."
   },
   "author": "Charlie Duong",
@@ -25,6 +26,7 @@
     "browser-refresh": "^1.6.0",
     "chai": "^3.5.0",
     "compression": "^1.6.2",
+    "coveralls": "^2.12.0",
     "express": "^4.14.0",
     "git-hooks": "^1.1.6",
     "jshint": "^2.9.3",
@@ -32,6 +34,7 @@
     "lasso-less": "^2.3.1",
     "lasso-marko": "^2.0.7",
     "marko-devtools": "^1.0.1",
+    "nyc": "^10.1.2",
     "serve-static": "^1.11.1"
   },
   "repository": {
