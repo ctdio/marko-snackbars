@@ -42,7 +42,7 @@ snackbars.createNotification({
     clickDismissEnabled: false,
 
     // specify custom class(es) for the snackbar
-    // useful when testing and you need a unique selector.
+    // useful when testing and you find yourself needing a unique selector.
     // of course, can also be used for overriding styles
     class: 'my-snackbar'
 
