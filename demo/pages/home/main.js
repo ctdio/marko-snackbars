@@ -10,22 +10,26 @@ var markoSnackbars = window.markoSnackbars
 var dogeNotifications = [
   {
     message: 'Cool!',
-    bgColor: 'red'
+    bgColor: 'red',
+    class: 'doge-snackbar'
   },
   {
     message: 'Wow!',
-    bgColor: '#3cdfe8'
+    bgColor: '#3cdfe8',
+    class: 'doge-snackbar'
   },
   {
     message: 'Much notification!',
     buttons: [
       {
         text: 'I agree',
-        color: 'orange'
+        color: 'orange',
+        class: 'doge-snackbar'
       },
       {
         text: 'Wow',
         color: 'red',
+        class: 'doge-snackbar',
         onClick: function () {
           markoSnackbars.createNotification({
             message: 'Much Wow!',
@@ -35,19 +39,23 @@ var dogeNotifications = [
       }
     ],
     bgColor: 'yellow',
-    messageColor: 'black'
+    messageColor: 'black',
+    class: 'doge-snackbar'
   },
   {
     message: 'Awesome!',
-    bgColor: 'orange'
+    bgColor: 'orange',
+    class: 'doge-snackbar'
   },
   {
     message: 'Very snackbar',
-    bgColor: 'brown'
+    bgColor: 'brown',
+    class: 'doge-snackbar'
   },
   {
     message: 'Much color',
-    bgColor: 'purple'
+    bgColor: 'purple',
+    class: 'doge-snackbar'
   }
 ]
 

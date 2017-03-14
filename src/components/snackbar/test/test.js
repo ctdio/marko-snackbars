@@ -45,15 +45,28 @@ describe('snackbar component', function () {
     expect(snackbarClass).to.contain('transition-' + direction)
   })
 
+  test('should be rendered with the provided classes', function (context) {
+    var cssClass = 'my-snackbar-class another-snackbar-class'
+
+    var output = context.render({ class: cssClass })
+
+    var $ = output.$
+
+    var snackbarClass = $('.mn-snackbar').attr('class')
+    expect(snackbarClass).to.contain(cssClass)
+  })
+
   context('buttons', function () {
     test('should render the component with the given buttons', function (context) {
       var testButtons = [
         {
           text: 'button1',
+          class: 'my-button1-class',
           color: 'red'
         },
         {
           text: 'button2',
+          class: 'my-button2-class',
           color: 'blue'
         }
       ]
@@ -71,10 +84,10 @@ describe('snackbar component', function () {
         var buttonInput = testButtons[i]
         var actualButton = buttons.eq(i)
         expect(actualButton.attr('style')).to.equal('color:' + buttonInput.color)
+        expect(actualButton.attr('class')).to.contain(buttonInput.class)
         expect(actualButton.text()).to.equal(buttonInput.text)
       }
     })
-
     test('should call a button\'s onClick handler when clicked', function (context) {
       var buttonClicked = false
       var testButtons = [

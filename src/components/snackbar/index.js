@@ -91,6 +91,7 @@ module.exports = require('marko-widgets').defineComponent({
       persist: input.persist,
       bgColor: input.bgColor,
       messageColor: input.messageColor,
+      class: input.class,
       clickDismissEnabled: clickDismissEnabled,
       onDismiss: onDismiss,
 

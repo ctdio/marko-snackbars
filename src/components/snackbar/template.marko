@@ -5,7 +5,8 @@ div [
     data.initialPosition,
     data.animate ? '' : 'conceal',
     data.remove ? 'remove' : '',
-    data.slideOut ? 'slide-out': ''
+    data.slideOut ? 'slide-out': '',
+    data.class
   ]
   style={
     color: data.messageColor,
@@ -21,7 +22,7 @@ div [
     for(var i = 0; i < data.buttons.length; i++)
       button [
         data-pos=i
-        class='mn-snack-button'
+        class='mn-snack-button ${data.buttons[i].class}'
         style={color: data.buttons[i].color}
         w-onClick='handleButtonClick'
       ] -- ${data.buttons[i].text}

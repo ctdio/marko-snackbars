@@ -23,6 +23,7 @@
     "app-module-path": "^1.1.0",
     "bluebird": "^3.5.0",
     "browser-refresh": "^1.6.0",
+    "chai": "^3.5.0",
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "git-hooks": "^1.1.6",
@@ -30,7 +31,7 @@
     "lasso": "^2.5.5",
     "lasso-less": "^2.3.1",
     "lasso-marko": "^2.0.7",
-    "marko-devtools": "0.0.11",
+    "marko-devtools": "^1.0.1",
     "serve-static": "^1.11.1"
   },
   "repository": {

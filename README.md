@@ -37,6 +37,11 @@ snackbars.createNotification({
     // the notification will not be dismissed from clicking on it (defaults to true)
     clickDismissEnabled: false,
 
+    // specify custom class(es) for the snackbar
+    // useful when testing and you need a unique selector.
+    // of course, can also be used for overriding styles
+    class: 'my-snackbar'
+
     // the buttons to render on the snackbar (optional)
     buttons: [
         {
@@ -45,6 +50,9 @@ snackbars.createNotification({
 
             // color of button text
             color: 'green',
+
+            // specify custom class(es) for the button
+            class: 'my-button'
 
             // on click handler
             onClick: function() {
