@@ -1,5 +1,9 @@
 # marko-snackbars
 
+[![Build Status](https://travis-ci.org/charlieduong94/marko-snackbars.svg?branch=master)](https://travis-ci.org/charlieduong94/marko-snackbars)
+[![Coverage Status](https://coveralls.io/repos/github/charlieduong94/marko-snackbars/badge.svg?branch=master)](https://coveralls.io/github/charlieduong94/marko-snackbars?branch=master)
+
+
 Snackbar notifications implemented with [Marko](https://github.com/marko-js/marko) and [Marko Widgets](https://github.com/marko-js/marko-widgets).
 
 <p align='center'>
