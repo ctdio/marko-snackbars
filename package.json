@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "browser-refresh ./demo/server.js",
-    "test": "nyc marko test ./src/components",
+    "test": "nyc marko test",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint ."
   },
