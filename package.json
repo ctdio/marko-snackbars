@@ -13,18 +13,18 @@
   "license": "ISC",
   "dependencies": {
     "eslint": "^3.16.1",
-    "eslint-config-standard": "^7.0.0",
+    "eslint-config-standard": "^10.2.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^2.1.1",
-    "marko": "^3.14.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "marko": "^4.4.9",
     "marko-widgets": "^6.6.0",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
-    "app-module-path": "^1.1.0",
+    "app-module-path": "^2.2.0",
     "bluebird": "^3.5.0",
     "browser-refresh": "^1.6.0",
-    "chai": "^3.5.0",
+    "chai": "^4.0.1",
     "compression": "^1.6.2",
     "coveralls": "^2.12.0",
     "express": "^4.14.0",
@@ -34,7 +34,7 @@
     "lasso-less": "^2.3.1",
     "lasso-marko": "^2.0.7",
     "marko-devtools": "^1.0.1",
-    "nyc": "^10.1.2",
+    "nyc": "^11.0.1",
     "serve-static": "^1.11.1"
   },
   "repository": {
