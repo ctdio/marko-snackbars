@@ -1,5 +1,7 @@
 # marko-snackbars
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/charlieduong94/marko-snackbars.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/charlieduong94/marko-snackbars.svg?branch=master)](https://travis-ci.org/charlieduong94/marko-snackbars)
 [![Coverage Status](https://coveralls.io/repos/github/charlieduong94/marko-snackbars/badge.svg?branch=master)](https://coveralls.io/github/charlieduong94/marko-snackbars?branch=master)
 
