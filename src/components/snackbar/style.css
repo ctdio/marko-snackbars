@@ -1,4 +1,4 @@
-.mn-snackbar {
+.mn-snack-container > .mn-snackbar {
     position: relative;
     margin: 5px;
     padding: 10px;
@@ -10,7 +10,7 @@
     font-family: "Arial", Helvetica, sans-serif;
     font-size: 1.0em;
 
-    display: inline-block;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -19,11 +19,11 @@
     transition: all 0.5s ease-out;
 }
 
-.mn-snackbar > .label {
+.mn-snack-container > .mn-snackbar > .label {
     display: inline-block;
 }
 
-.mn-snackbar > .mn-snack-button {
+.mn-snack-container > .mn-snackbar > .mn-snack-button {
     cursor: pointer;
     font-size: 1.0em;
     border: none;
@@ -37,26 +37,26 @@
 /**
  *  push down/up notifications when added
  */
-.mn-snackbar.remove {
+.mn-snack-container > .mn-snackbar.remove {
     opacity: 0;
 }
-.mn-snackbar.transition-down:last-child {
+.mn-snack-container > .mn-snackbar.transition-down:last-child {
     margin-top: -40px;
 }
 
-.mn-snackbar.transition-down:last-child.remove {
+.mn-snack-container > .mn-snackbar.transition-down:last-child.remove {
     margin-top: -40px;
 }
 
-.mn-snackbar.transition-down:not(:last-child).remove {
+.mn-snack-container > .mn-snackbar.transition-down:not(:last-child).remove {
     margin-top: -45px;
 }
 
-.mn-snackbar.transition-up:last-child {
+.mn-snack-container > .mn-snackbar.transition-up:last-child {
     margin-bottom: -40px;
 }
 
-.mn-snackbar.transition-up:not(:last-child).remove {
+.mn-snack-container > .mn-snackbar.transition-up:not(:last-child).remove {
     visibility: hidden;
     margin-bottom: -45px;
 }
@@ -64,45 +64,49 @@
 /**
  *  slide notification into position when added
  */
-.mn-snack-tl > .mn-snackbar, .mn-snack-bl > .mn-snackbar {
+.mn-snack-container.mn-snack-tl > .mn-snackbar,
+.mn-snack-container.mn-snack-bl > .mn-snackbar {
     opacity: 1;
     left: 0;
 }
 
-.mn-snack-tl > .mn-snackbar.conceal, .mn-snack-bl > .mn-snackbar.conceal {
+.mn-snack-container.mn-snack-tl > .mn-snackbar.conceal,
+.mn-snack-container.mn-snack-bl > .mn-snackbar.conceal {
     opacity: 0;
     position: absolute;
     left: -100%;
 }
 
-.mn-snack-tr > .mn-snackbar, .mn-snack-br > .mn-snackbar {
+.mn-snack-container.mn-snack-tr > .mn-snackbar,
+.mn-snack-container.mn-snack-br > .mn-snackbar {
     opacity: 1;
     right: 0;
 }
 
-.mn-snack-tr > .mn-snackbar.conceal, .mn-snack-br > .mn-snackbar.conceal {
+.mn-snack-container.mn-snack-tr > .mn-snackbar.conceal,
+.mn-snack-container.mn-snack-br > .mn-snackbar.conceal {
     opacity: 0;
     position: absolute;
     right: -100%;
 }
 
-.mn-snack-tc > .mn-snackbar {
+.mn-snack-container.mn-snack-tc > .mn-snackbar {
     opacity: 1;
     top: 0;
 }
 
-.mn-snack-tc > .mn-snackbar.conceal {
+.mn-snack-container.mn-snack-tc > .mn-snackbar.conceal {
     opacity: 0;
     position: absolute;
     top: -100%;
 }
 
-.mn-snack-bc > .mn-snackbar {
+.mn-snack-container.mn-snack-bc > .mn-snackbar {
     opacity: 1;
     bottom: 0;
 }
 
-.mn-snack-bc > .mn-snackbar.conceal {
+.mn-snack-container.mn-snack-bc > .mn-snackbar.conceal {
     opacity: 0;
     position: absolute;
     bottom: -100%;
@@ -111,14 +115,14 @@
 /**
  * Slide notification out when removed
  */
-.mn-snackbar.slide-out {
+.mn-snack-container > .mn-snackbar.slide-out {
     opacity: 0;
 }
 
-.mn-snack-tl > .mn-snackbar.slide-out, .mn-snack-bl > .mn-snackbar.slide-out {
+.mn-snack-container.mn-snack-tl > .mn-snackbar.slide-out, .mn-snack-bl > .mn-snackbar.slide-out {
     left: -100%;
 }
 
-.mn-snack-tr > .mn-snackbar.slide-out, .mn-snack-br > .mn-snackbar.slide-out {
+.mn-snack-container.mn-snack-tr > .mn-snackbar.slide-out, .mn-snack-br > .mn-snackbar.slide-out {
     right: -100%;
 }
