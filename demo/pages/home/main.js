@@ -31,7 +31,7 @@ var dogeNotifications = [
         color: 'red',
         class: 'doge-snackbar',
         onClick: function () {
-          markoSnackbars.createNotification({
+          markoSnackbars.create({
             message: 'Much Wow!',
             bgColor: 'pink'
           })
@@ -60,7 +60,7 @@ var dogeNotifications = [
 ]
 
 generateNumberedSnackBtn.addEventListener('click', function () {
-  markoSnackbars.createNotification({
+  markoSnackbars.create({
     position: 'tr',
     message: 'Notification ' + count,
     ttl: -1
@@ -69,9 +69,9 @@ generateNumberedSnackBtn.addEventListener('click', function () {
 })
 
 clickDismissEnabledSnackBtn.addEventListener('click', function () {
-  markoSnackbars.createNotification({
+  markoSnackbars.create({
     position: 'tr',
-    message: 'Click Dismiss Notification ' + clickDismissCount,
+    message: 'Not Click Dismiss Notification ' + clickDismissCount,
     clickDismissEnabled: false,
     onDismiss: function () {
       console.log('Successfully dismissed')
@@ -82,6 +82,6 @@ clickDismissEnabledSnackBtn.addEventListener('click', function () {
 
 generateDogeSnackBtn.addEventListener('click', function () {
   var notification = dogeNotifications[dogeCount % dogeNotifications.length]
-  markoSnackbars.createNotification(notification)
+  markoSnackbars.create(notification)
   dogeCount++
 })
